@@ -1,1 +1,1 @@
-web: gunicorn wsgi --chdir ./src/ debug
+web: gunicorn project.wsgi:application --chdir ./src/
