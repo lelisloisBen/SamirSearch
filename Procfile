@@ -1,1 +1,1 @@
-web: gunicorn wsgi --chdir ./src/ -log-file - --log-level debug
+web: gunicorn wsgi --chdir ./src/ debug
