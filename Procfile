@@ -1,1 +1,1 @@
-web: gunicorn samirsearch.wsgi:main --chdir ./src/
+web: gunicorn wsgi --chdir ./src/
