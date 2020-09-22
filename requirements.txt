@@ -1,7 +1,4 @@
 Flask
 gunicorn
-Flask-heroku
-request
-jsonify
 Google-Search-API
 Flask-Cors
