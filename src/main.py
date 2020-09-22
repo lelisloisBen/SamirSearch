@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from google import google as MYBESTSEARCH
 from flask_cors import CORS
 from utils import APIException
+import socket
 
 app = Flask(__name__)
 CORS(app)
@@ -21,13 +22,15 @@ def getClientInfo():
     ip_address = request.remote_addr
     client_host = request.host
     client_url = request.host_url
+    hostName = socket.gethostbyaddr(ip_address)
 
     if request.method == 'GET':
         return jsonify({
             'server': 'success',
             'ip': ip_address,
             'host': client_host,
-            'url': client_url
+            'url': client_url,
+            'host_name': hostName
         })
 
 @app.route('/search', methods=['POST'])
