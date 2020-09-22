@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify, json
-from googlesearch import search as MYSEARCH
 from google import google as MYBESTSEARCH
 from flask_cors import CORS
 from utils import APIException
