@@ -18,10 +18,10 @@ def hello_world():
 @app.route('/info', methods=['GET'])
 def getClientInfo():
 
-    ip_address = flask.request.remote_addr
-    client_host = flask.request.host
-    client_url = flask.request.host_url
-    full_request = flask.request
+    ip_address = request.remote_addr
+    client_host = request.host
+    client_url = request.host_url
+    full_request = request
 
     if request.method == 'GET':
         return jsonify({
