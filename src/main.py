@@ -21,15 +21,13 @@ def getClientInfo():
     ip_address = request.remote_addr
     client_host = request.host
     client_url = request.host_url
-    full_request = request
 
     if request.method == 'GET':
         return jsonify({
             'server': 'success',
             'ip': ip_address,
             'host': client_host,
-            'url': client_url,
-            'request': full_request
+            'url': client_url
         })
 
 @app.route('/search', methods=['POST'])
