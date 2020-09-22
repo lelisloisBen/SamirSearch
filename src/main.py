@@ -2,13 +2,19 @@ from flask import Flask, request, jsonify, json
 from googlesearch import search as MYSEARCH
 from google import google as MYBESTSEARCH
 from flask_cors import CORS
+from utils import APIException
 
 app = Flask(__name__)
 CORS(app)
 
+# Handle/serialize errors like a JSON object
+@app.errorhandler(APIException)
+def handle_invalid_usage(error):
+    return jsonify(error.to_dict()), error.status_code
+
 @app.route('/')
 def hello_world():
-    return "hello Samir, Your Backend is running..."
+    return "<div style='text-align: center; background-color: orange'><h1>Backend running...</h1><br/><h3>Welcome back samir</h3><img src='https://media.gettyimages.com/photos/woman-sitting-by-washing-machine-picture-id117852649?s=2048x2048' width='80%' /></div>"
 
 @app.route('/search', methods=['POST'])
 def searchComplex():
