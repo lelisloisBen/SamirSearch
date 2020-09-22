@@ -15,6 +15,23 @@ def handle_invalid_usage(error):
 def hello_world():
     return "<div style='text-align: center; background-color: orange'><h1>Backend running...</h1><br/><h3>Welcome back samir</h3><img src='https://media.gettyimages.com/photos/woman-sitting-by-washing-machine-picture-id117852649?s=2048x2048' width='80%' /></div>"
 
+@app.route('/info', methods=['GET'])
+def getClientInfo():
+
+    ip_address = flask.request.remote_addr
+    client_host = flask.request.host
+    client_url = flask.request.host_url
+    full_request = flask.request
+
+    if request.method == 'GET':
+        return jsonify({
+            'server': 'success',
+            'ip': ip_address,
+            'host': client_host,
+            'url': client_url,
+            'request': full_request
+        })
+
 @app.route('/search', methods=['POST'])
 def searchComplex():
     body = request.get_json()
