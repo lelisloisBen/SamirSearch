@@ -92,3 +92,4 @@ nose
 nose-cov
 twine
 mock
+google
